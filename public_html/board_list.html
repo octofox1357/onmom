@@ -1,0 +1,49 @@
+<?
+require("_lpb/lib_func.php");
+$data=lib_skin_data("main");
+$source=lib_tag_data("content",$data);
+lib_echo_page($source[0]);
+?>
+	<head>
+		<?
+		include("./_global/head.php");
+		?>
+	</head>
+	<body data-mobile-nav-style="classic">
+	<?
+	include("./_global/header.php");
+	?>
+	<?
+		$board_info=mysqli_fetch_array(mysqli_query($SESS_DBH, "SELECT * FROM ".$_lp['tname']."_boarddata_info WHERE board_id='".$_GET['board_id']."'"));
+	?>
+	<!-- start page title -->
+	<section class="half-section parallax" data-parallax-background-ratio="0.5" style="background-image:url('images/portfolio-bg.jpg');padding:0">
+	            <div class="container">
+	                <div class="row align-items-stretch justify-content-center extra-small-screen">
+	                    <div class="col-12 col-xl-6 col-lg-7 col-md-8 page-title-extra-small text-center d-flex justify-content-center flex-column">
+	                        <h1 class="alt-font text-gradient-sky-blue-pink margin-15px-bottom d-inline-block"><?=$board_info['section_name']?></h1>
+	                        <h2 class="text-extra-dark-gray alt-font font-weight-500 letter-spacing-minus-1px line-height-50 sm-line-height-45 xs-line-height-30 no-margin-bottom"><?=$board_info['board_name']?></h2>
+	                    </div>
+	                </div>
+	            </div>
+	</section>
+	<!-- end page title -->
+<?
+	include("./_board_skin/".$board_info['skin_list']."/board_list.html");
+?>
+	<!-- start footer -->
+	<?
+	include("./_global/footer.php");
+	?>
+	<!-- end footer -->
+        <!-- start scroll to top -->
+        <a class="scroll-top-arrow" href="javascript:void(0);"><i class="feather icon-feather-arrow-up"></i></a>
+        <!-- end scroll to top -->
+        <!-- javascript -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/theme-vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+<?
+lib_echo_page($source[1]);
+?>
