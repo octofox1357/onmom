@@ -1,0 +1,15 @@
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.viminfo
+.cache
+.config
+.vim
+.vscode-server
+includes/DatabaseConnection.php
+error
+error_log-20210919
+error_log*
+logs
+attached_files
