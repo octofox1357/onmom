@@ -1,13 +1,14 @@
 <!doctype html>
-<html>
+<html class="no-js" lang="en">
     <head>
-        <?include("../templates/2109/global/head.html.php");?>
+        <?include("../templates/global/head.html.php");?>
     </head>
 
-    <body data-mobile-nav-style="classic">
-        <?include("../templates/2109/global/header.html.php");?>
+    <body class="bg-smoky-black">
+        <div class="left-sidebar-wrapper" data-sticky_parent>
+        <?include("../templates/global/header.html.php");?>
         <?=$output?>
-        <?include("../templates/2109/global/footer.html.php");?>
+        <?include("../templates/global/footer.html.php");?>
         <!-- javascript -->
         <script type="text/javascript" src="/js/theme-vendors.min.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>

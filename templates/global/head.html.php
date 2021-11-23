@@ -1,4 +1,4 @@
-<title>충북사회혁신 센터</title>
+<title>온몸</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="author" content="REDbookers">

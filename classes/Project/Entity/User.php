@@ -2,30 +2,26 @@
 namespace Project\Entity;
 
 class User {
-	public $user_id;
-	public $login_id;
+	public $id;
+	public $email;
 	public $password;
-	public $temp_password;
 	public $name;
-    public $email;
     public $phone;
-    public $ing;
-    public $reg_time;
-    public $log_time;
-    public $log_ip;
+    public $address;
     public $level;
-    public $oauth_key;
-    public $oauth_kakao;
-    public $oauth_naver;
-    public $temp_oauth;
-    public $profile_img;
-    public $group_no;
-    public $cafe24_id;
 
     private $boardTable;
-	private $commentTable;
-	private $likeTable;
 
-    public function __construct() {}
+    public function __construct($boardTable) {
+        $this->boardTable = $boardTable;
+    }
+
+    public function writePost($post) {
+        $post['user_id'] = $this->id;
+        if($post['id'] == null){
+            $post['reg_time'] = time();
+        }
+		return $this->boardTable->save($post);
+	}
     
 }
