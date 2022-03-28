@@ -437,6 +437,7 @@ h6 { font-size:1.80rem; line-height:2.5rem; }
 .bg-transparent-deep-green { background-color: rgba(115, 180, 103, 0.9); }
 .bg-transparent-dark-gray { background-color: rgba(117,117,117,.5); }
 .bg-transparent-mengo-yellow { background-color: rgba(254, 187, 26, 0.9); }
+.bg-transparent-main-yellow { background-color: rgba(255, 244, 89, 0.9); }
 .bg-transparent-chocolate { background-color: rgba(201, 153, 101, 0.9); }
 .bg-transparent-extra-dark-gray { background-color: rgba(28, 28, 28, 0.9); }
 .bg-transparent-extra-dark-gray2 { background-color: rgba(30, 30, 30, 0.8); }
@@ -512,10 +513,11 @@ h6 { font-size:1.80rem; line-height:2.5rem; }
     05. Custom
 ====================================== */
 
+section.quarter-section { padding:40px 0; }
+section.half-section { padding:80px 0; }
 section { padding: 130px 0; overflow: hidden; }
 section.big-section { padding:160px 0; }
 section.extra-big-section { padding:200px 0; }
-section.half-section { padding:80px 0; }
 .cursor-none { cursor: none; }
 .cursor-default { cursor: default; }
 
@@ -2842,7 +2844,7 @@ header.sticky .navbar.header-dark .navbar-toggler-line { background: #fff; }
 .sticky .navbar.navbar-dark.header-light .navbar-nav > .nav-item.dropdown.simple-dropdown:hover > a { color: rgba(0,0,0,0.6) !important; }
 
 /* header logo */
-header .navbar .navbar-brand img, header.side-menu .logo img, header .sidebar-nav-menu .navbar-brand img { max-height: 70px }
+header .navbar .navbar-brand img, header.side-menu .logo img, header .sidebar-nav-menu .navbar-brand img { max-height: 100px }
 header .navbar .navbar-brand .default-logo, header.sticky .navbar-brand .alt-logo, header .sidebar-nav-menu .navbar-brand .default-logo { visibility: visible; opacity: 1; width: auto; transition-duration:0.5s; -webkit-transition-duration: 0.5s; -moz-transition-duration: 0.5s; -ms-transition-duration: 0.5s; -o-transition-duration: 0.5s; }
 header.sticky .navbar .navbar-brand .default-logo, header .navbar-brand .alt-logo, header .navbar .navbar-brand .mobile-logo, header .sidebar-nav-menu .navbar-brand .mobile-logo  { visibility: hidden; opacity: 0; width: 0; transition-duration:0.5s; -webkit-transition-duration: 0.5s; -moz-transition-duration: 0.5s; -ms-transition-duration: 0.5s; -o-transition-duration: 0.5s; }
 

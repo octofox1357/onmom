@@ -27,7 +27,8 @@ class Login {
 	}
 
 	public function success() {
-		return ['template' => 'loginsuccess.html.php', 'title' => '로그인 성공'];
+		// return ['template' => 'loginsuccess.html.php', 'title' => '로그인 성공'];
+		header("location: /");
 	}
 
 	public function error() {
@@ -41,6 +42,7 @@ class Login {
 	public function logout() {
 		unset($_SESSION);
 		session_destroy();
-		return ['template' => 'logout.html.php', 'title' => '로그아웃되었습니다'];
+		// return ['template' => 'logout.html.php', 'title' => '로그아웃되었습니다'];
+		header("location: /");
 	}
 }

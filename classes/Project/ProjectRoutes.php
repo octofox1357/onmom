@@ -3,8 +3,10 @@ namespace Project;
 
 class ProjectRoutes {
 	private $userTable;
-	private $authentication;
 	private $boardTable;
+	private $boardMetadataTable;
+
+	private $authentication;
 
 	public function __construct() {
 		include __DIR__ . '/../../includes/DatabaseConnection.php';
@@ -14,13 +16,15 @@ class ProjectRoutes {
 		$this->authentication = new \Redbookers\Authentication($this->userTable, 'email', 'password');
 
 		$this->boardTable = new \Redbookers\DatabaseTable($pdo, $board_id.'_board', 'id', '\Project\Entity\Board');
+		$this->boardMetadataTable = new \Redbookers\DatabaseTable($pdo, 'rb_board_metadata', 'id', '\Project\Entity\BoardMetadata');
 	}
 
 	public function getRoutes(): array {
 		$loginController = new \Project\Controllers\Login($this->authentication);
 		$registerController = new \Project\Controllers\Register($this->userTable);
+		
 		$homeController = new \Project\Controllers\Home();
-		$boardController = new \Project\Controllers\Board($this->boardTable, $this->authentication);
+		$boardController = new \Project\Controllers\Board($this->boardTable, $this->boardMetadataTable, $this->authentication);
 
 
 		$routes = [
@@ -100,6 +104,50 @@ class ProjectRoutes {
 					'controller' => $boardController,
 					'action' => "readPage"
 				],
+			],
+			'post/delete'=>[
+				'POST'=>[
+					'controller' => $boardController,
+					'action' => "deletePost"
+				],
+				'login' => true
+			],
+			'ajax/saveimage' => [
+				'POST' => [
+					'controller' => $boardController,
+					'action' => 'saveImage'
+				]
+			],
+			'ajax/deleteimage' => [
+				'POST' => [
+					'controller' => $boardController,
+					'action' => 'deleteImage'
+				]
+			],
+			// 온몸
+			'onmom' => [
+				'GET' => [
+					'controller' => $homeController,
+					'action' => "onmom"
+				]
+			],
+			'cloud' => [
+				'GET' => [
+					'controller' => $homeController,
+					'action' => "cloud"
+				]
+			],
+			'cloud_youtube' => [
+				'GET' => [
+					'controller' => $homeController,
+					'action' => "cloud_youtube"
+				]
+			],
+			'edu_youtube' => [
+				'GET' => [
+					'controller' => $homeController,
+					'action' => "edu_youtube"
+				]
 			],
 		];
 		return $routes;
